@@ -15,12 +15,6 @@ Data coverage begins on October 10, 2023 at block [18,320,000](https://beaconcha
 
 The data is delivered in Parquet chunks of 10,000 blocks, allowing for decreased bandwidth for users who choose to keep their datasets updated.
 
-## Limitations
-
-Currently, the dataset only compares builder bid hashes against the block hash written to the chain. It contains false positives where multiple relays received the winning block but did not all deliver it to the block proposer.
-
-This has implications for relative relay market share but not for total MEV-Boost statistics. We will backfill this data in time, and present an empty `payload_delivered` column in the data schema in the meantime.
-
 ## Pandas import example
 
 ```python 
@@ -39,6 +33,9 @@ for file in file_paths:
     dfs.append(df_tmp)
 
 df = pd.concat(dfs)
+
+df = df[df['payload_delivered'] == True]
+# drop undelivered payloads
 
 df.sort_values(by=['block_number', 'bid_timestamp_ms'], ascending=True, inplace=True)
 # double sorting by block_number and bid_timestamp_ms allows the data to stay 
@@ -69,4 +66,4 @@ df.reset_index(inplace=True, drop=True)
 - `builder_fee_recipient`: `str`
 - `block_timestamp`: `uint32`
 - `extra_data`: `str`
-- `payload_delivered`: `<NA>`
+- `payload_delivered`: `bool`
