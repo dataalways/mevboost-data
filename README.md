@@ -4,7 +4,7 @@ This repository is a collection of [public domain](https://creativecommons.org/p
 
 ## Coverage
 
-Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) leveraging the [Merkle RPC](https://freerpc.merkle.io/), and merged with data from the following relays: 
+Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) leveraging the [Infura RPC](https://www.infura.io/), and merged with data from the following relays: 
 - [Flashbots](https://boost-relay.flashbots.net/) 
 - [ultrasound](https://relay.ultrasound.money/)
 - [bloXroute regulated](https://bloxroute.regulated.blxrbdn.com/)
