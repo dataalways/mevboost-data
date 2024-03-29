@@ -10,10 +10,14 @@ Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) levera
 - [bloXroute regulated](https://bloxroute.regulated.blxrbdn.com/)
 - [bloXroute max profit](https://bloxroute.max-profit.blxrbdn.com)
 - [Agnostic](https://agnostic-relay.net/)
+- [Aestus](https://mainnet.aestus.live/) (As of block 19,530,000)
+- [Manifold](https://mainnet-relay.securerpc.com/) (As of block 19,530,000)
+- [Eden](https://relay.edennetwork.io/info) (As of block 19,530,000)
+- [Titan](https://titanrelay.xyz/) (As of block 19,530,000)
 
 Data coverage begins on October 10, 2023 at block [18,320,000](https://beaconcha.in/block/18320000). We may backfill more data in time.
 
-The data is delivered in Parquet chunks of 10,000 blocks, allowing for decreased bandwidth for users who choose to keep their datasets updated.
+The data is delivered in Parquet chunks of 10,000 blocks, allowing for incremental bandwidth for users who choose to keep their datasets updated.
 
 ## Pandas import example
 
