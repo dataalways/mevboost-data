@@ -36,6 +36,9 @@ for file in file_paths:
     df_tmp = pd.read_parquet(os.path.join(base_path, file))
     dfs.append(df_tmp)
 
+dfs.append(os.path.join(base_path, 'minority-relay-backfill/backfill__minority__relays__blocks__18320000_to_19530000.parquet'))
+# add in the backfill data from other relays.
+
 df = pd.concat(dfs)
 
 df = df[df['payload_delivered'] == True]
