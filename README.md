@@ -10,12 +10,12 @@ Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) levera
 - [bloXroute regulated](https://bloxroute.regulated.blxrbdn.com/)
 - [bloXroute max profit](https://bloxroute.max-profit.blxrbdn.com)
 - [Agnostic](https://agnostic-relay.net/)
-- [Aestus](https://mainnet.aestus.live/) (Data prior to block 19,530,000 available in backfill directory)
-- [Manifold](https://mainnet-relay.securerpc.com/) (Data prior to block 19,530,000 available in backfill directory)
-- [Eden](https://relay.edennetwork.io/info) (Data prior to block 19,530,000 available in backfill directory)
-- [Titan](https://titanrelay.xyz/) (Data prior to block 19,530,000 available in backfill directory)
+- [Aestus](https://mainnet.aestus.live/)
+- [Manifold](https://mainnet-relay.securerpc.com/)
+- [Eden](https://relay.edennetwork.io/info)
+- [Titan](https://titanrelay.xyz/)
 
-Data coverage begins on October 10, 2023 at block [18,320,000](https://beaconcha.in/block/18320000). We may backfill more data in time.
+Data coverage begins on October 11, 2023 at block [18,320,000](https://beaconcha.in/block/18320000). We may backfill more data in time.
 
 The data is delivered in Parquet chunks of 10,000 blocks, allowing for incremental bandwidth for users who choose to keep their datasets updated.
 
@@ -57,20 +57,17 @@ df.reset_index(inplace=True, drop=True)
 - `slot`: `int64`
 - `block_number`: `int64`
 - `block_hash`: `str`
-- `value`: `str`
-- `base_fee_per_gas`: `uint64`
+- `value_eth`: `float64`
+- `base_fee_per_gas`: `float64`
 - `gas_limit`: `float64`
 - `gas_used`: `int64`
-- `num_tx`: `int64`
-- `builder_label`: `str`
 - `builder_pubkey`: `str`
 - `relay`: `str`
 - `bid_timestamp_ms`: `float64`
 - `slot_time_ms`: `float64`
 - `proposer_pubkey`: `str`
-- `proposer_mev_recipient`: `str`
-- `optimistic_submission`: `bool`
-- `builder_fee_recipient`: `str`
-- `block_timestamp`: `uint32`
+- `block_timestamp`: `float64`
 - `extra_data`: `str`
-- `payload_delivered`: `bool`
+- `builder_label`: `str`
+- `proposer_label`: `str`
+- `lido_node_operator`: `str`
