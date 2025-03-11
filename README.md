@@ -18,7 +18,7 @@ We then enrich the data with Flashbots's [public builder mapping](https://datase
 
 Data coverage begins on October 11, 2023. We may backfill more data in time.
 
-The data is delivered in daily Parquet chunks, allowing for incremental bandwidth for users who choose to keep their datasets updated.
+The data is delivered in daily Parquet chunks allowing for incremental bandwidth for users who choose to keep their datasets updated.
 
 ## Pandas import example
 
