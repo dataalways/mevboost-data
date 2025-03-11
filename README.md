@@ -4,7 +4,7 @@ This repository is a collection of [public domain](https://creativecommons.org/p
 
 ## Coverage
 
-Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) leveraging the [Infura RPC](https://www.infura.io/), and merged with data from the following relays: 
+Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) leveraging an [Infura RPC](https://www.infura.io/), and merged with data from the following relays: 
 - [Flashbots](https://boost-relay.flashbots.net/) 
 - [ultrasound](https://relay.ultrasound.money/)
 - [bloXroute regulated](https://bloxroute.regulated.blxrbdn.com/)
@@ -12,20 +12,21 @@ Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) levera
 - [Agnostic](https://agnostic-relay.net/)
 - [Aestus](https://mainnet.aestus.live/)
 - [Manifold](https://mainnet-relay.securerpc.com/)
-- [Eden](https://relay.edennetwork.io/info)
 - [Titan](https://titanrelay.xyz/)
 
-Data coverage begins on October 11, 2023 at block [18,320,000](https://beaconcha.in/block/18320000). We may backfill more data in time.
+We then enrich the data with Flashbots's [public builder mapping](https://datasets.flashbots.net/) and with the mevboost.pics [proposer mapping](https://mevboost.pics/data.html). 
 
-The data is delivered in Parquet chunks of 10,000 blocks, allowing for incremental bandwidth for users who choose to keep their datasets updated.
+Data coverage begins on October 11, 2023. We may backfill more data in time.
+
+The data is delivered in daily Parquet chunks, allowing for incremental bandwidth for users who choose to keep their datasets updated.
 
 ## Pandas import example
 
 ```python 
-# Validated with python 3.11.6
+# Validated with python 3.13.1
 
 import os
-import pandas as pd  # pandas==2.1.2
+import pandas as pd  # pandas==2.2.1
 
 base_path = './data/'
 file_paths = os.listdir(base_path)
@@ -36,14 +37,7 @@ for file in file_paths:
     df_tmp = pd.read_parquet(os.path.join(base_path, file))
     dfs.append(df_tmp)
 
-dfs.append(os.path.join(base_path, 'minority-relay-backfill/backfill__minority__relays__blocks__18320000_to_19530000.parquet'))
-# add in the backfill data from other relays.
-
 df = pd.concat(dfs)
-
-df = df[df['payload_delivered'] == True]
-# drop undelivered payloads
-
 df.sort_values(by=['block_number', 'bid_timestamp_ms'], ascending=True, inplace=True)
 # double sorting by block_number and bid_timestamp_ms allows the data to stay 
 # ordered inclusive of non-mev blocks missing bid_timestamp_ms data.
