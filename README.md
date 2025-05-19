@@ -57,6 +57,8 @@ df.reset_index(inplace=True, drop=True)
 - `gas_used`: `int64`
 - `builder_pubkey`: `str`
 - `relay`: `str`
+- `region`: `str` [1]
+- `alternate_bid_source`: `bool` [2]
 - `bid_timestamp_ms`: `float64`
 - `slot_time_ms`: `float64`
 - `proposer_pubkey`: `str`
@@ -65,3 +67,7 @@ df.reset_index(inplace=True, drop=True)
 - `builder_label`: `str`
 - `proposer_label`: `str`
 - `lido_node_operator`: `str`
+
+[1] Regional data currently only applies to distinguish between Ultrasound's American and European relay instances.\
+
+[2] Alternated bid source denotes bid times for payloads that were delivered by a relay instance but were missing from the instance, but present at another instance (e.g., a payload propagated by Ultrasound EU, but with a matching bid only present at Ultrasound USA). Data for this column is only available starting at block number: 22,495,000.
