@@ -14,6 +14,7 @@ Block data is extracted using [cryo](https://github.com/paradigmxyz/cryo) levera
 - [Manifold](https://mainnet-relay.securerpc.com/)
 - [Titan](https://titanrelay.xyz/)
 - [BTCS](https://relay-website.btcs.com/)
+- [ETHGAS](https://relay.ethgas.com/)
 
 We then enrich the data with Flashbots's [public builder mapping](https://datasets.flashbots.net/) and with the mevboost.pics [proposer mapping](https://mevboost.pics/data.html). 
 
