@@ -1,0 +1,9 @@
+known-issues.txt
+
+- The proposer mapping used to generate the data is stale as of Spring 2025. It is highly suggested that the user rips the latest map from Xatu and regenerates the proposer map
+
+- Bid timing data for Titan Relay before or on 2026-08-08 tracks the earliest any instance received the winning bid, not necessarily the regional instance that delivered the payload
+
+- Data for Aestus relay does not differentiate between which regional instance received or delivered the winning bid
+
+- Data for bloXroute relays does not differentiate between which regional instance received or delivered the winning bid
