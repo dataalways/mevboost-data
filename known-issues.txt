@@ -7,3 +7,5 @@ known-issues.txt
 - Data for Aestus relay does not differentiate between which regional instance received or delivered the winning bid
 
 - Data for bloXroute relays does not differentiate between which regional instance received or delivered the winning bid
+
+- Bid timing data for bloXroute Max-Profit is absent from August 22, 2026 until its shutdown on August 26, 2026
